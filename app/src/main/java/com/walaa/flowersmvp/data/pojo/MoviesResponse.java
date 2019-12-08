@@ -8,7 +8,7 @@ public class MoviesResponse {
 
     @SerializedName("page")
     @Expose
-    private Integer page;
+    private int page;
     @SerializedName("total_results")
     @Expose
     private Integer totalResults;

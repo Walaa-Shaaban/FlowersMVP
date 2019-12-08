@@ -10,8 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.walaa.flowersmvp.R;
 import com.walaa.flowersmvp.data.pojo.Result;
+import com.walaa.flowersmvp.data.utils.ApiUtils;
 
 import java.util.List;
 
@@ -34,7 +36,14 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
 
     @Override
     public void onBindViewHolder(@NonNull PopularMoviesViewHolder holder, int position) {
-
+        Glide
+                .with(context)
+                .load(ApiUtils.POSTER_BASE_URL + popularMoviesList.get(position).getPosterPath())
+                .centerCrop()
+                .placeholder(R.mipmap.ic_launcher)
+                .into(holder.movieImg);
+        holder.movieTiltle.setText(popularMoviesList.get(position).getTitle());
+        holder.movieData.setText(popularMoviesList.get(position).getReleaseDate());
     }
 
     @Override

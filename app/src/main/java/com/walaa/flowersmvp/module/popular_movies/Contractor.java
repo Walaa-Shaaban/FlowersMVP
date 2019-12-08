@@ -18,6 +18,7 @@ public interface Contractor {
     }
 
     interface CallbackInterface{
+        void strat();
         void onSuccess(List<Result> results);
         void onError(String msg);
     }
